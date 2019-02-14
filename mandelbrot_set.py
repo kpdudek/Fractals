@@ -38,18 +38,18 @@ def mandelbrot_set(xmin,xmax,ymin,ymax,width,height,maxiter):
 
 
 #Saves the image with given filename
-image_counter = 7
+image_counter = 10
 def save_image(fig):
     global image_counter
-    filename = "mandelbrodt_%d.png" % image_counter
+    filename = "mandelbrot_%d.png" % image_counter
     image_counter += 1
     fig.savefig(filename)
 
 
 
 #Produces the computer image of the mandelbrodt set based on given conditions
-def mandelbrot_image(xmin,xmax,ymin,ymax,width=20,height=20,maxiter=18000,cmap='jet',gamma=0.3):
-    dpi = 600
+def mandelbrot_image(xmin,xmax,ymin,ymax,width=5,height=5,maxiter=1000,cmap='jet',gamma=0.3):
+    dpi = 1000
     img_width = dpi * width
     img_height = dpi * height
     x,y,z = mandelbrot_set(xmin,xmax,ymin,ymax,img_width,img_height,maxiter)
@@ -82,7 +82,7 @@ def mandelbrot_image(xmin,xmax,ymin,ymax,width=20,height=20,maxiter=18000,cmap='
 #	mandelbrot_image(x[i],{2},{3},{4},cmap='hot')
 
 
-mandelbrot_image(-0.75125,-0.75105,.02525,.0256,cmap='hot')
+mandelbrot_image(-0.75125,-0.75105,.02525,.0256,cmap='jet')
 
 #mandelbrot_image(-0.85,-0.8,0,0.05,cmap='hot')
 
