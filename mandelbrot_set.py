@@ -38,7 +38,7 @@ def mandelbrot_set(xmin,xmax,ymin,ymax,width,height,maxiter):
 
 
 #Saves the image with given filename
-image_counter = 10
+image_counter = 13
 def save_image(fig):
     global image_counter
     filename = "mandelbrot_%d.png" % image_counter
@@ -48,19 +48,19 @@ def save_image(fig):
 
 
 #Produces the computer image of the mandelbrodt set based on given conditions
-def mandelbrot_image(xmin,xmax,ymin,ymax,width=5,height=5,maxiter=1000,cmap='jet',gamma=0.3):
-    dpi = 1000
+def mandelbrot_image(xmin,xmax,ymin,ymax,width=25,height=25,maxiter=5000,cmap='jet',gamma=0.3):
+    dpi = 800
     img_width = dpi * width
     img_height = dpi * height
     x,y,z = mandelbrot_set(xmin,xmax,ymin,ymax,img_width,img_height,maxiter)
     
-    fig, ax = plt.subplots(figsize=(width, height),dpi=72)
+    fig, ax = plt.subplots(figsize=(width, height),dpi=1000)
     ticks = np.arange(0,img_width,dpi)
-    x_ticks = xmin + (xmax-xmin)*ticks/img_width
-    plt.xticks(ticks, x_ticks)
-    y_ticks = ymin + (ymax-ymin)*ticks/img_width
-    plt.yticks(ticks, y_ticks)
-    ax.set_title(cmap)
+    #x_ticks = xmin + (xmax-xmin)*ticks/img_width
+    #plt.xticks(ticks, x_ticks)
+    #y_ticks = ymin + (ymax-ymin)*ticks/img_width
+    #plt.yticks(ticks, y_ticks)
+    ax.set_title("Mandelbrodt Set")
     
     norm = colors.PowerNorm(gamma)
     ax.imshow(z.T,cmap=cmap,origin='lower',norm=norm)  
